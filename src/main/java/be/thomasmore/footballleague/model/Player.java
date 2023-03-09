@@ -2,6 +2,7 @@ package be.thomasmore.footballleague.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Player {
@@ -10,8 +11,12 @@ public class Player {
     private String name;
     private String nationality;
     private int age;
-    private String foot;
+    private String preferredPosition;
     private int rate;
+    private String playerPhoto;
+
+    @ManyToOne
+    private Team team;
 
     public Player() {
 
@@ -49,12 +54,24 @@ public class Player {
         this.age = age;
     }
 
-    public String getFoot() {
-        return foot;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public void setFoot(String foot) {
-        this.foot = foot;
+    public String getPreferredPosition() {
+        return preferredPosition;
+    }
+
+    public void setPreferredPosition(String preferredPosition) {
+        this.preferredPosition = preferredPosition;
+    }
+
+    public Team getTeam() {
+        return team;
+    }
+
+    public void setTeam(Team team) {
+        this.team = team;
     }
 
     public int getRate() {
@@ -63,5 +80,14 @@ public class Player {
 
     public void setRate(int rate) {
         this.rate = rate;
+    }
+
+
+    public String getPlayerPhoto() {
+        return playerPhoto;
+    }
+
+    public void setPlayerPhoto(String playerPhoto) {
+        this.playerPhoto = playerPhoto;
     }
 }

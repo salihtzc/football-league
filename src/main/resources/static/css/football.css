@@ -17,3 +17,17 @@ body {
 .freespaceforfooter {
     margin-bottom: 250px;
 }
+
+
+.prevButtonDiv {
+    position: fixed;
+    left: 10px;
+    top: 160px;
+}
+
+.nextButtonDiv {
+    position: fixed;
+    right: 10px;
+    top: 160px;
+}
+
