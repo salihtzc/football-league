@@ -1,0 +1,19 @@
+body {
+    background-color: aquamarine;
+    font-family: 'Open Sans', sans-serif;
+    font-family: 'Roboto', sans-serif;
+}
+
+.freespaceforheader {
+    margin: 120px 0 20px 0;
+}
+
+#footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.freespaceforfooter {
+    margin-bottom: 250px;
+}

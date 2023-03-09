@@ -5,13 +5,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class HomeController {
+public class PlayerController {
 
-    @GetMapping({"/", "/home"})
-    public String home(Model model){
+    @GetMapping("/playerlist")
+    public String playerList(Model model) {
 
-        int myCalculatedValue = 34 * 62;
-        model.addAttribute("abcd",myCalculatedValue);
         return "home";
     }
 }
