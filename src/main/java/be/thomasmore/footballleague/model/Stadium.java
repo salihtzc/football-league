@@ -2,7 +2,6 @@ package be.thomasmore.footballleague.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
 
 @Entity
 public class Stadium {
@@ -10,7 +9,7 @@ public class Stadium {
     @Id
     private Integer id;
     private int capacity;
-    private String address;
+    private String description;
     private int openingYear;
     private String location;
     private String stadiumImage;
@@ -39,12 +38,12 @@ public class Stadium {
         this.capacity = capacity;
     }
 
-    public String getAddress() {
-        return address;
+    public String getDescription() {
+        return description;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setDescription(String address) {
+        this.description = address;
     }
 
     public int getOpeningYear() {
