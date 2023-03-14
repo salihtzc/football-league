@@ -1,6 +1,7 @@
 package be.thomasmore.footballleague.controllers;
 
 import be.thomasmore.footballleague.model.Team;
+import be.thomasmore.footballleague.repositories.PlayerRepository;
 import be.thomasmore.footballleague.repositories.TeamRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,6 +16,9 @@ public class TeamController {
 
     @Autowired
     TeamRepository teamRepository;
+
+    @Autowired
+    PlayerRepository playerRepository;
 
     @GetMapping("/teamlist")
     public String teamList(Model model) {
@@ -34,7 +38,9 @@ public class TeamController {
         Optional<Team> optionalPrev = teamRepository.findFirstByIdLessThanOrderByIdDesc(id);
         Optional<Team> optionalNext = teamRepository.findFirstByIdGreaterThanOrderById(id);
         if (optionalTeam.isPresent()) {
-            model.addAttribute("team", optionalTeam.get());
+            Team team = optionalTeam.get();
+            model.addAttribute("team", team);
+            model.addAttribute("players",playerRepository.findByTeam(team));
         }
         if (optionalPrev.isPresent()) {
             model.addAttribute("prev", optionalPrev.get().getId());
