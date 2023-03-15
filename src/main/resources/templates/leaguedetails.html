@@ -1,0 +1,64 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/football.css}" href="/css/football.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<body>
+<nav th:replace="~{/fragments/headerfooter :: header}" >hier komt de header</nav>
+<!--<div class="freespaceforheader"></div>-->
+
+
+<section id="league" class="league" th:style="|background: url(${league.getBackgroundImage()})|">
+    <div class="welcome">
+        <h2 th:text="|Welcome to ${league.getName()} !|"></h2>
+        <p>Scroll down for more information</p>
+    </div>
+
+</section>
+
+<section class="league" style="background: url(https://ui.dmpcdn.com/tvbox-web-cdn/imgs/bg/epl-bg-horizontal-new-01.jpg)">
+    <div class="welcome">
+    <h2>About the league</h2>
+    <p>The Premier League is the top tier of England's football pyramid, with 20 teams battling it out for the honour of being crowned English champions.
+        Home to some of the most famous clubs, players, managers and stadiums in world football, the Premier League is the most-watched league on the planet with one billion homes watching the action in 188 countries.
+        The league takes place between August and May and involves the teams playing each other home and away across the season, a total of 380 matches.
+        Three points are awarded for a win, one point for a draw and none for a defeat, with the team with the most points at the end of the season winning the Premier League title.
+        The teams who finish in the bottom three of the league table at the end of the campaign, are relegated to the Championship, the second tier of English football.
+        Those teams are replaced by three clubs promoted from the Championship; the sides that finish in first and second place and the third via the end-of-season playoffs.
+        If any clubs finish with the same number of points, their position in the Premier League table is determined by goal difference, then the number of goals scored, then the team who collected the most points in the head-to-head matches, then who scored most away goals in the head-to-head.
+        Since the League began in 1992, there have been seven different winners: Manchester United, Arsenal, Chelsea, Manchester City, Blackburn Rovers, Leicester City and Liverpool. Man Utd have had the most success with 13 titles in the 31 seasons so far. </p>
+    </div>
+</section>
+
+
+<section class="league" style="background: url(https://ui.dmpcdn.com/tvbox-web-cdn/imgs/bg/epl-bg-horizontal-new-01.jpg)">
+    <div class="welcome">
+        <h2>Teams</h2><br><br>
+        <div class="row row-cols-3 row-cols-md-5 g-4" >
+        <div th:each="team :${teams}">
+            <div class="col">
+            <img th:src="@{|${team.getTeamImage()}|}" >
+            <h5 th:text="${team.getTeamName()}">Card title</h5>
+            <p th:text="|Team Rating: ${team.getTeamRating()}|"></p>
+            <a th:href="@{|/teamdetails/${team.getId()}|}" class="btn btn-primary" th:text="|Go to ${team.getTeamName()} page|"></a>
+            </div>
+        </div>
+        </div>
+
+    </div>
+</section>
+
+
+
+<div class="freespaceforheader"></div>
+<div th:replace="~{/fragments/headerfooter :: footer}" > hier komt de footer</div>
+</body>
+</html>

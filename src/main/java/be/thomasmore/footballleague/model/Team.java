@@ -2,6 +2,7 @@ package be.thomasmore.footballleague.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Team {
@@ -11,6 +12,10 @@ private Integer id;
 private String teamName;
 private int teamRating;
 private String teamImage;
+
+
+@ManyToOne
+private League league;
 
 public Team() {
 
@@ -47,5 +52,14 @@ public Team() {
 
     public void setTeamImage(String teamImage) {
         this.teamImage = teamImage;
+    }
+
+
+    public League getLeague() {
+        return league;
+    }
+
+    public void setLeague(League league) {
+        this.league = league;
     }
 }

@@ -1,5 +1,5 @@
-package be.thomasmore.footballleague.controllers;
-
-public class StadiumController {
-
-}
+//package be.thomasmore.footballleague.controllers;
+//
+//public class StadiumController {
+//
+//}

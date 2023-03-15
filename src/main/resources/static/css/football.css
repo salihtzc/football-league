@@ -1,3 +1,10 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
 body {
     background-color: aquamarine;
     font-family: 'Open Sans', sans-serif;
@@ -31,3 +38,18 @@ body {
     top: 160px;
 }
 
+
+.league {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-attachment: fixed;
+    min-height: 100vh;
+}
+
+
+.welcome {
+    color: white;
+    text-align: center;
+    padding: 50px;
+}

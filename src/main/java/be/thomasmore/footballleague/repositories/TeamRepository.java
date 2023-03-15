@@ -1,8 +1,10 @@
 package be.thomasmore.footballleague.repositories;
 
+import be.thomasmore.footballleague.model.League;
 import be.thomasmore.footballleague.model.Team;
 import org.springframework.data.repository.CrudRepository;
 
+import java.util.List;
 import java.util.Optional;
 
 public interface TeamRepository extends CrudRepository<Team,Integer> {
@@ -10,4 +12,6 @@ public interface TeamRepository extends CrudRepository<Team,Integer> {
     Optional<Team> findFirstByIdGreaterThanOrderById(int id);
     Optional<Team> findFirstByOrderByIdDesc();
     Optional<Team> findFirstByOrderByIdAsc();
+
+    List<Team> findByLeague(League league);
 }
