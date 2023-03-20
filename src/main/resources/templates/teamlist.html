@@ -17,21 +17,16 @@
 <h1>Teams</h1>
 
 
-<div class="row row-cols-3 row-cols-md-5 g-4">
-    <div th:each="team : ${teams}">
-    <div class="col">
-        <div class="card " style="max-width: 20rem;">
-            <img th:src="@{|${team.getTeamImage()}|}" src="" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title" th:text="${team.getTeamName()}">Card title</h5>
-                <p class="card-text" th:text="|Team Rating: ${team.getTeamRating()}|"></p>
-                <a th:href="@{|/teamdetails/${team.getId()}|}" class="btn btn-primary" th:text="|Go to ${team.getTeamName()} page|"></a>
-            </div>
+<div class="row row-cols-3 row-cols-md-5 g-4" >
+    <div th:each="team :${teams}">
+        <div class="col">
+            <img th:src="@{|${team.getTeamImage()}|}" >
+            <h5 th:text="${team.getTeamName()}">Card title</h5>
+            <p th:text="|Team Rating: ${team.getTeamRating()}|"></p>
+            <a th:href="@{|/teamdetails/${team.getId()}|}" class="btn btn-primary" th:text="|Go to ${team.getTeamName()} page|"></a>
         </div>
     </div>
-    </div>
 </div>
-
 
 
 <div class="freespaceforfooter"></div>

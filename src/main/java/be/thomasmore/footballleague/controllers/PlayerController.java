@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -30,6 +31,31 @@ public class PlayerController {
 
         model.addAttribute("allPlayers", allPlayers);
         return "allplayers" ;
+    }
+
+
+    @GetMapping("/allplayers/filter")
+    public String allPlayersWithFilter(Model model, @PathVariable(required = false) Integer minimumRate,
+                                                    @PathVariable(required = false) Integer maximumRate,
+                                                    @PathVariable(required = false) Integer minimumAge,
+                                                    @PathVariable(required = false) Integer maximumAge,
+                                                    @PathVariable(required = false) String position
+    ) {
+
+
+        List<Player> allPlayers = playerRepository.findByQuery(minimumRate,maximumRate,minimumAge,maximumAge,position);
+
+
+        model.addAttribute("minimumRate",minimumRate);
+        model.addAttribute("maximumRate",maximumRate);
+        model.addAttribute("minimumAge",minimumAge);
+        model.addAttribute("maximumAge",maximumAge);
+        model.addAttribute("position",position);
+
+        model.addAttribute("players",allPlayers);
+        model.addAttribute("showFilter",true);
+
+        return "allplayers";
     }
 
 

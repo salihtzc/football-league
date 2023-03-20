@@ -53,3 +53,27 @@ body {
     text-align: center;
     padding: 50px;
 }
+
+
+.onefilter {
+    margin: 2px 0;
+    display: flex;
+}
+
+.filtername {
+    width: 10em;
+    padding: 0.2em;
+    text-align: right;
+}
+
+.verticalmargin {
+    margin: 8px 0;
+}
+
+.generalinfo {
+    font-size: 12px;
+    background-color: lightgoldenrodyellow;
+    padding: 1px 5px;
+}
+
+

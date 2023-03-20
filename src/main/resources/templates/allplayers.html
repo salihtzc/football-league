@@ -17,6 +17,32 @@
 
 <h1>Players</h1>
 
+<div>
+
+  <div th:if="${showFilter}" >
+    <div class="verticalmargin">
+      <a th:href="@{/venuelist}">-</a>
+    </div>
+
+    <form>
+
+    </form>
+
+  </div>
+
+  <div  th:unless="${showFilter}">
+    <div class="verticalmargin">
+      <a th:href="@{/venuelist/filter}" class="buttonLook filterButton">+</a>
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+
 <div class="row row-cols-2 row-cols-md-6 g-4">
   <div th:each="player : ${allPlayers}">
     <div class="col">
