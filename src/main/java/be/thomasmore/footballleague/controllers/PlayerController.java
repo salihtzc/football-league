@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 import java.util.Optional;
@@ -34,12 +35,12 @@ public class PlayerController {
     }
 
 
-    @GetMapping("/allplayers/filter")
-    public String allPlayersWithFilter(Model model, @PathVariable(required = false) Integer minimumRate,
-                                                    @PathVariable(required = false) Integer maximumRate,
-                                                    @PathVariable(required = false) Integer minimumAge,
-                                                    @PathVariable(required = false) Integer maximumAge,
-                                                    @PathVariable(required = false) String position
+    @GetMapping("/allplayers/{filter}")
+    public String allPlayersWithFilter(Model model, @RequestParam(required = false) Integer minimumRate,
+                                                    @RequestParam(required = false) Integer maximumRate,
+                                                    @RequestParam(required = false) Integer minimumAge,
+                                                    @RequestParam(required = false) Integer maximumAge,
+                                                    @RequestParam(required = false) String position
     ) {
 
 
@@ -52,7 +53,7 @@ public class PlayerController {
         model.addAttribute("maximumAge",maximumAge);
         model.addAttribute("position",position);
 
-        model.addAttribute("players",allPlayers);
+        model.addAttribute("allPlayers",allPlayers);
         model.addAttribute("showFilter",true);
 
         return "allplayers";

@@ -21,10 +21,72 @@
 
   <div th:if="${showFilter}" >
     <div class="verticalmargin">
-      <a th:href="@{/venuelist}">-</a>
+      <a th:href="@{/allplayers}">-</a>
     </div>
 
     <form>
+      <div class="onefilter">
+        <input type="submit" value="search" class="btn btn-outline-success">
+      </div>
+      <h3>Rate</h3>
+      <div class="onefilter">
+        <label for="minRate" class="filtername">min</label>
+        <input type="number" id="minRate" name="minimumRate" th:value="${minimumRate}" step="5"> <span></span>
+      </div>
+      <div class="onefilter">
+        <label for="maxRate" class="filtername">max</label>
+        <input type="number" id="maxRate" name="maximumRate" th:value="${maximumRate}" step="5"> <span></span>
+      </div>
+
+      <h3>Age</h3>
+      <div class="onefilter">
+        <label for="minAge" class="filtername">min</label>
+        <input type="number" id="minAge" name="minimumAge" th:value="${minimumAge}" step="1"> <span>years</span>
+      </div>
+      <div class="onefilter">
+        <label for="maxAge" class="filtername">max</label>
+        <input type="number" id="maxAge" name="maximumAge" th:value="${maximumAge}" step="1"> <span>years</span>
+      </div>
+
+      <h3>Preferred Position</h3>
+      <div class="onefilter">
+
+
+        <label for="positiongk" class="filtername">GK</label>
+        <input type="radio" id="positiongk" th:checked="${position!=null && position=='GK'}" value="GK" name="position">
+
+        <label for="positioncb" class="filtername">CB</label>
+        <input type="radio" id="positioncb" th:checked="${position!=null && position=='CB'}" value="CB" name="position">
+
+        <label for="positionlb" class="filtername">LB</label>
+        <input type="radio" id="positionlb" th:checked="${position!=null && position=='LB'}" value="LB" name="position">
+
+        <label for="positionrb" class="filtername">RB</label>
+        <input type="radio" id="positionrb" th:checked="${position!=null && position=='RB'}" value="RB" name="position">
+
+        <label for="positioncdm" class="filtername">CDM</label>
+        <input type="radio" id="positioncdm" th:checked="${position!=null && position=='CDM'}" value="CDM" name="position"> <br>
+
+
+
+        <label for="positioncm" class="filtername">CM</label>
+        <input type="radio" id="positioncm" th:checked="${position!=null && position=='CM'}" value="CM" name="position">
+
+        <label for="positioncam" class="filtername">CAM</label>
+        <input type="radio" id="positioncam" th:checked="${position!=null && position=='CAM'}" value="CAM" name="position">
+
+        <label for="positionrw" class="filtername">RW</label>
+        <input type="radio" id="positionrw" th:checked="${position!=null && position=='RW'}" value="RW" name="position">
+
+        <label for="positionlw" class="filtername">LW</label>
+        <input type="radio" id="positionlw" th:checked="${position!=null && position=='LW'}" value="LW" name="position">
+
+        <label for="positionst" class="filtername">ST</label>
+        <input type="radio" id="positionst" th:checked="${position!=null && position=='ST'}" value="ST" name="position">
+
+
+      </div>
+
 
     </form>
 
@@ -32,67 +94,37 @@
 
   <div  th:unless="${showFilter}">
     <div class="verticalmargin">
-      <a th:href="@{/venuelist/filter}" class="buttonLook filterButton">+</a>
+      <a th:href="@{/allplayers/filter}" class="buttonLook filterButton">+</a>
     </div>
   </div>
 
-</div>
 
+  <div class="row row-cols-2 row-cols-md-6 g-4">
+    <div th:each="player : ${allPlayers}">
+      <div class="col">
+        <div class="card " style="max-width: 20rem;">
+          <img th:src="@{|${player.getPlayerPhoto()}|}" src="" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title" th:text="${player.getName()}">Card title</h5>
+            <p class="card-text" th:text="|Team : ${player.getTeam().getTeamName()}|"></p>
+            <!--          <p class="card-text" th:text="|Rate :  ${player.getRate()}|"></p>-->
+            <!--          <p class="card-text" th:text="|Age: ${player.getAge()}|"></p>-->
+            <p class="card-text" th:text="|Position: ${player.getPreferredPosition()}|"></p>
+            <!--          <p class="card-text" th:text="|Nationality: ${player.getNationality()}|"></p>-->
 
+            <a th:href="@{|/teamdetails/${player.team.getId()}|}" class="btn btn-primary" th:text="|Go to ${player.team.getTeamName()} page|"></a><br><br>
+            <a th:href="@{|/playerdetails/${player.getId()}|}" class="btn btn-success" th:text="|Go detailed ${player.getName()} page|"></a>
 
-
-
-
-<div class="row row-cols-2 row-cols-md-6 g-4">
-  <div th:each="player : ${allPlayers}">
-    <div class="col">
-      <div class="card " style="max-width: 20rem;">
-        <img th:src="@{|${player.getPlayerPhoto()}|}" src="" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title" th:text="${player.getName()}">Card title</h5>
-          <p class="card-text" th:text="|Team : ${player.getTeam().getTeamName()}|"></p>
-<!--          <p class="card-text" th:text="|Rate :  ${player.getRate()}|"></p>-->
-<!--          <p class="card-text" th:text="|Age: ${player.getAge()}|"></p>-->
-          <p class="card-text" th:text="|Position: ${player.getPreferredPosition()}|"></p>
-<!--          <p class="card-text" th:text="|Nationality: ${player.getNationality()}|"></p>-->
-
-          <a th:href="@{|/teamdetails/${player.team.getId()}|}" class="btn btn-primary" th:text="|Go to ${player.team.getTeamName()} page|"></a><br><br>
-          <a th:href="@{|/playerdetails/${player.getId()}|}" class="btn btn-success" th:text="|Go detailed ${player.getName()} page|"></a>
-
+          </div>
         </div>
       </div>
     </div>
   </div>
+
+
 </div>
 
 
-
-
-
-<!--<div th:each="player : ${allPlayers}">-->
-
-<!--  <div>-->
-<!--  <h3 th:text="|Name : ${player.getName()}|"></h3>-->
-<!--  </div>-->
-<!--  <div >-->
-<!--    <p th:text="|Rate : ${player.getRate()}|"></p>-->
-<!--  </div>-->
-<!--  <div >-->
-<!--    <p th:text="|Age : ${player.getAge()}|"></p>-->
-<!--  </div>-->
-<!--  <div >-->
-<!--    <p th:text="|Nationality : ${player.getNationality()}|"></p>-->
-<!--  </div>-->
-<!--  <div >-->
-<!--    <p th:text="|Position : ${player.getPreferredPosition()}|"></p>-->
-<!--  </div>-->
-<!--  <div >-->
-<!--    <p th:text="|Team : ${player.getTeam().getTeamName()}|"></p>-->
-<!--  </div>-->
-
-
-
-<!--</div>-->
 
 
 <div class="freespaceforheader"></div>
