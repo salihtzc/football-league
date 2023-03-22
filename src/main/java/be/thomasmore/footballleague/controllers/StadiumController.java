@@ -41,7 +41,6 @@ public class StadiumController {
         if (optionalStadium.isPresent()) {
             Stadium stadium = optionalStadium.get();
             model.addAttribute("stadium", stadium);
-//            model.addAttribute("players",playerRepository.findByTeam(team));
         }
         if (optionalPrev.isPresent()) {
             model.addAttribute("prev", optionalPrev.get().getId());
