@@ -17,7 +17,6 @@
 
 <div  th:if="${player}">
   <div th:if="${prev!=null}" class="prevButtonDiv">
-    <!--    <button type="button" class="btn btn-light">Light</button>-->
     <a class="btn btn-light"  th:href="@{'/playerdetails/' + ${prev}}" role="button">&lt;</a>
   </div>
   <div th:if="${next!=null}" class="nextButtonDiv">
@@ -45,7 +44,6 @@
             <p th:text="|Position: ${player.getPreferredPosition()}|"></p>
             <p th:text="|Nationality: ${player.getNationality()}|"></p>
 
-            <!--            <a th:href="@{|/teamdetails/${player.team.getId()}|}" class="btn btn-primary" th:text="|Go to ${player.team.getTeamName()} page|"></a>-->
           </div>
         </div>
     </div>
