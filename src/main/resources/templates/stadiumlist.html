@@ -25,11 +25,7 @@
         <div class="card-body">
           <h5 class="card-title" th:text="${stadium.getStadiumName()}">Card title</h5>
           <p class="card-text" th:text="|Capacity : ${stadium.getCapacity()}|"></p>
-          <!--          <p class="card-text" th:text="|Rate :  ${player.getRate()}|"></p>-->
-          <!--          <p class="card-text" th:text="|Age: ${player.getAge()}|"></p>-->
           <p class="card-text" th:text="|Location: ${stadium.getLocation()}|"></p>
-          <!--          <p class="card-text" th:text="|Nationality: ${player.getNationality()}|"></p>-->
-
           <a th:href="@{|/stadiumdetails/${stadium.getId()}|}" class="btn btn-success" th:text="|Go detailed ${stadium.getStadiumName()} page|"></a>
 
         </div>
