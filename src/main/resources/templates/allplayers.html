@@ -21,12 +21,12 @@
 
   <div th:if="${showFilter}" >
     <div class="verticalmargin">
-      <a th:href="@{/allplayers}">-</a>
+      <a th:href="@{/allplayers}" class="btn btn-outline-dark">-</a>
     </div>
 
     <form>
       <div class="onefilter">
-        <input type="submit" value="search" class="btn btn-outline-success">
+        <input type="submit" value="search" class="btn btn-outline-dark">
       </div>
       <h3>Rate</h3>
       <div class="onefilter">
@@ -94,7 +94,7 @@
 
   <div  th:unless="${showFilter}">
     <div class="verticalmargin">
-      <a th:href="@{/allplayers/filter}" class="buttonLook filterButton">+</a>
+      <a th:href="@{/allplayers/filter}" class="btn btn-outline-dark">+</a>
     </div>
   </div>
 

@@ -152,3 +152,32 @@ INSERT INTO "PUBLIC"."PLAYER" VALUES
 
 
 
+INSERT INTO "PUBLIC"."STADIUM" VALUES
+    (1, 90000, 'Wembley Stadium (branded as Wembley Stadium connected by EE for sponsorship reasons) is a football stadium in Wembley, London. ', 'London', 2007, 'https://pbs.twimg.com/media/FdlqvhUWQAAhmo0.jpg', 'Wembley'),
+    (2, 74310, 'Old Trafford has always been a special place as it was one of the few grounds where the stands envelop the corners. Although more stadiums are now also totally enclosed, Old Trafford’s sheer size still makes it a bewildering sight.', 'Manchester', 1910, 'https://cdn.mos.cms.futurecdn.net/5yFc2ht5Jc56NpyQfTHCsf.jpg', 'Old Trafford'),
+    (3, 55097, 'The Etihad Stadium has a bowl design and is totally enclosed. Now expanded to a capacity of over 55,000 it has become one of the best stadiums in the country, not only in terms of size but also in its fantastic facilities.', 'Manchester', 2002, 'https://lh3.googleusercontent.com/TPU-d2OsLC9odQJ5FRJWAbv5t4PsD8v1wMgq1bGg6FBL-0o3YyjNlpSL856hGKIgm15JfdYhxyfj8TIgnobZv0tGxQ=w640-h400-e365-rj-sc0x00ffffff', 'Etihad'),
+    (4, 60704, 'The Emirates Stadium (known as Arsenal Stadium for UEFA competitions) is a football stadium in Holloway, London, England. It has been the home stadium of Arsenal Football Club since its completion in 2006.', 'London', 2006, 'https://cdn.getyourguide.com/img/tour/5df2472a261dc.jpeg/148.jpg', 'Emirates'),
+    (5, 53394, 'Anfield is a football stadium in Anfield, Liverpool, Merseyside, England, which has a seating capacity of 53,394, making it the seventh largest football stadium in England.', 'Liverpool', 1884, 'https://www.terraco.com/ru/wp-content/uploads/2020/12/Liverpool-Banner-2.png', 'Anfield'),
+    (6, 41361, 'Stamford Bridge actually predates Chelsea football club; the Blues were founded with the intention of playing their games at Stamford Bridge and that has been the case since 1905. ', 'London', 1905, 'https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iWqdoqGLByME/v1/-1x-1.jpg', 'Stamford Bridge');
+
+
+
+
+INSERT INTO STADIUM_TEAMS (STADIUMS_ID, TEAMS_ID) VALUES (1, 1);
+INSERT INTO STADIUM_TEAMS (STADIUMS_ID, TEAMS_ID) VALUES (1, 2);
+INSERT INTO STADIUM_TEAMS (STADIUMS_ID, TEAMS_ID) VALUES (1, 3);
+INSERT INTO STADIUM_TEAMS (STADIUMS_ID, TEAMS_ID) VALUES (1, 4);
+INSERT INTO STADIUM_TEAMS (STADIUMS_ID, TEAMS_ID) VALUES (1, 5);
+INSERT INTO STADIUM_TEAMS (STADIUMS_ID, TEAMS_ID) VALUES (1, 6);
+INSERT INTO STADIUM_TEAMS (STADIUMS_ID, TEAMS_ID) VALUES (1, 7);
+INSERT INTO STADIUM_TEAMS (STADIUMS_ID, TEAMS_ID) VALUES (1, 8);
+INSERT INTO STADIUM_TEAMS (STADIUMS_ID, TEAMS_ID) VALUES (1, 9);
+INSERT INTO STADIUM_TEAMS (STADIUMS_ID, TEAMS_ID) VALUES (1, 10);
+
+INSERT INTO STADIUM_TEAMS (STADIUMS_ID, TEAMS_ID) VALUES (2, 5);
+INSERT INTO STADIUM_TEAMS (STADIUMS_ID, TEAMS_ID) VALUES (3, 1);
+INSERT INTO STADIUM_TEAMS (STADIUMS_ID, TEAMS_ID) VALUES (4, 6);
+INSERT INTO STADIUM_TEAMS (STADIUMS_ID, TEAMS_ID) VALUES (5, 2);
+INSERT INTO STADIUM_TEAMS (STADIUMS_ID, TEAMS_ID) VALUES (6, 3);
+
+

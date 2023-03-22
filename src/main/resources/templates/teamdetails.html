@@ -54,24 +54,33 @@
 
     <div class="row row-cols-2 row-cols-md-6 g-4">
     <div th:each="player : ${players}">
+
       <div class="col">
         <div class="card " style="max-width: 20rem;">
           <img th:src="@{|${player.getPlayerPhoto()}|}" src="" class="card-img-top" alt="...">
           <div class="card-body">
             <h5 class="card-title" th:text="${player.getName()}">Card title</h5>
             <p class="card-text" th:text="|Team : ${player.getTeam().getTeamName()}|"></p>
-<!--            <p class="card-text" th:text="|Rate :  ${player.getRate()}|"></p>-->
-<!--            <p class="card-text" th:text="|Age: ${player.getAge()}|"></p>-->
             <p class="card-text" th:text="|Position: ${player.getPreferredPosition()}|"></p>
-<!--            <p class="card-text" th:text="|Nationality: ${player.getNationality()}|"></p>-->
-
             <a th:href="@{|/playerdetails/${player.getId()}|}" class="btn btn-success" th:text="|Go detailed ${player.getName()} page|"></a>
 
           </div>
         </div>
       </div>
+
     </div>
     </div>
+
+
+    <div th:if="${!team.getStadiums().isEmpty()}" >
+      <h2>Stadiums </h2>
+      <div th:each="stadium: ${team.getStadiums()}">
+        <a class="btn btn-outline-danger" th:href="@{'/stadiumdetails/'+${stadium.getId()}}">
+          <span th:text="${stadium.getStadiumName()}">stadium name</span>
+        </a>
+      </div>
+    </div>
+
 
 
   </div>

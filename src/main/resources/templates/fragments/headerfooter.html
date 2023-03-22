@@ -16,7 +16,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="menu" th:fragment="header">
   <div class="container-fluid">
-    <a class="navbar-brand my-2 text-success" href="#home">Football League</a>
+    <a class="navbar-brand my-2 text-success" href="/leaguedetails/1">Football League</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -26,21 +26,30 @@
           <a class="nav-link active" aria-current="page" href="/home">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/leaguedetails/1">League Details</a>
+          <a class="nav-link "aria-current="page" href="/leaguedetails/1">League Details</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/teamdetails/1">Team Details</a>
+          <a class="nav-link" aria-current="page" href="/teamdetails/1">Team Details</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link " href="/teamlist">Teams</a>
+          <a class="nav-link " aria-current="page" href="/teamlist">Teams</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link " href="/allplayers">All Players</a>
+          <a class="nav-link " aria-current="page" href="/allplayers">All Players</a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="/playerdetails/1">Player Details</a>
+          <a class="nav-link" aria-current="page" href="/playerdetails/1">Player Details</a>
         </li>
+
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="/stadiumlist">Stadiums</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="/stadiumdetails/1">Stadium Details</a>
+        </li>
+
       </ul>
     </div>
   </div>

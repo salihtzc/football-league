@@ -2,7 +2,10 @@ package be.thomasmore.footballleague.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
+
+import java.util.Collection;
 
 @Entity
 public class Team {
@@ -16,6 +19,12 @@ private String teamImage;
 
 @ManyToOne
 private League league;
+
+
+@ManyToMany(mappedBy = "teams")
+private Collection<Stadium> stadiums;
+
+
 
 public Team() {
 
@@ -61,5 +70,14 @@ public Team() {
 
     public void setLeague(League league) {
         this.league = league;
+    }
+
+
+    public Collection<Stadium> getStadiums() {
+        return stadiums;
+    }
+
+    public void setStadiums(Collection<Stadium> stadiums) {
+        this.stadiums = stadiums;
     }
 }
