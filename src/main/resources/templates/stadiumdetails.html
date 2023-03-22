@@ -19,7 +19,6 @@
 
 <div  th:if="${stadium}">
     <div th:if="${prev!=null}" class="prevButtonDiv">
-        <!--    <button type="button" class="btn btn-light">Light</button>-->
         <a class="btn btn-light"  th:href="@{'/stadiumdetails/' + ${prev}}" role="button">&lt;</a>
     </div>
     <div th:if="${next!=null}" class="nextButtonDiv">
